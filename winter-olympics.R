@@ -34,4 +34,5 @@ winter %>% ggplot(aes(Country, Count, fill = Medal, label = Country)) +
   theme(legend.text = element_text(color = "#FAFAFA", margin = margin(0,20,0,0))) + 
   theme(legend.title = element_text(color = "#FAFAFA")) +
   theme(axis.text.x = element_blank(), axis.line.x = element_blank(), axis.ticks.x = element_blank()) +
-  theme(panel.grid.major.x = element_blank())
+  theme(panel.grid.major.x = element_blank()) +
+  labs(fill = "Medal Type")
