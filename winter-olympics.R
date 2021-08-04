@@ -36,3 +36,21 @@ winter %>% ggplot(aes(Country, Count, fill = Medal, label = Country)) +
   theme(axis.text.x = element_blank(), axis.line.x = element_blank(), axis.ticks.x = element_blank()) +
   theme(panel.grid.major.x = element_blank()) +
   labs(fill = "Medal Type")
+
+# france
+france <- winter %>% filter(Country == "FRA")
+
+france %>% ggplot(aes(Discipline, Count, fill = Discipline)) +
+  geom_bar(stat = "identity", width = 1) + 
+  scale_fill_manual(values= c("#1733FF", "#6081FF", "#411AB9", "#B008F3", "#D0155B", "#EF7E65", "#F9B36D", "#F78EAC", "#B7FFF8")) +
+  coord_polar() +
+  theme(panel.background = element_rect(fill = "#1a1a1a"), plot.background = element_rect(fill = "#1a1a1a"), axis.text = element_text(color = "#cccccc")) +
+  theme(axis.title.x = element_blank(), axis.text.x = element_blank()) +
+  theme(axis.line = element_blank()) +
+  theme(legend.background = element_rect(fill = "#1A1A1A", color = "#1a1a1a"), legend.key = element_rect(color = "#1a1a1a"), legend.margin = margin(0,5,0,20)) +
+  theme(legend.text = element_text(color = "#fafafa", margin = margin(0,20,0,0)), legend.title = element_text(color = "#fafafa")) +
+  ylab("Medal Count") +
+  theme(axis.title.y = element_text(margin = margin(0,15,0,20), color = "#cccccc", hjust = 0.75)) +
+  ggtitle("France's Medals by Discipline, 1924-2014") +
+  theme(plot.title = element_text(color = "#fafafa", hjust = 0.5, face = "plain", margin = margin(20,0,10,0)))
+  
