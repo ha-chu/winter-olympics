@@ -51,6 +51,107 @@ france %>% ggplot(aes(Discipline, Count, fill = Discipline)) +
   theme(legend.text = element_text(color = "#fafafa", margin = margin(0,20,0,0)), legend.title = element_text(color = "#fafafa")) +
   ylab("Medal Count") +
   theme(axis.title.y = element_text(margin = margin(0,15,0,20), color = "#cccccc", hjust = 0.75)) +
-  ggtitle("France's Medals by Discipline, 1924-2014") +
+  ggtitle("France") +
   theme(plot.title = element_text(color = "#fafafa", hjust = 0.5, face = "plain", margin = margin(20,0,10,0)))
-  
+
+# italy
+italy <- winter %>% filter(Country == "ITA")
+
+italy %>% ggplot(aes(Discipline, Count, fill = Discipline)) +
+  geom_bar(stat = "identity", width = 1) + 
+  scale_fill_manual(values= c("#1733FF", "#6081FF", "#411AB9", "#B008F3", "#D0155B", "#EF7E65", "#F9B36D", "#F78EAC", "#B7FFF8")) +
+  coord_polar() +
+  theme(panel.background = element_rect(fill = "#1a1a1a"), plot.background = element_rect(fill = "#1a1a1a"), axis.text = element_text(color = "#cccccc")) +
+  theme(axis.title.x = element_blank(), axis.text.x = element_blank()) +
+  theme(axis.line = element_blank()) +
+  theme(legend.background = element_rect(fill = "#1A1A1A", color = "#1a1a1a"), legend.key = element_rect(color = "#1a1a1a"), legend.margin = margin(0,5,0,20)) +
+  theme(legend.text = element_text(color = "#fafafa", margin = margin(0,20,0,0)), legend.title = element_text(color = "#fafafa")) +
+  ylab("Medal Count") +
+  theme(axis.title.y = element_text(margin = margin(0,15,0,20), color = "#cccccc", hjust = 0.75)) +
+  ggtitle("Italy") +
+  theme(plot.title = element_text(color = "#fafafa", hjust = 0.5, face = "plain", margin = margin(20,0,10,0)))
+
+# germany
+germany <- winter %>% filter(Country == "GER")
+
+germany %>% ggplot(aes(Discipline, Count, fill = Discipline)) +
+  geom_bar(stat = "identity", width = 1) + 
+  scale_fill_manual(values= c("#1733FF", "#6081FF", "#411AB9", "#B008F3", "#D0155B", "#EF7E65", "#F9B36D", "#F78EAC", "#B7FFF8", "#645186", "#075B5D", "#F7E4FF")) +
+  coord_polar() +
+  theme(panel.background = element_rect(fill = "#1a1a1a"), plot.background = element_rect(fill = "#1a1a1a"), axis.text = element_text(color = "#cccccc")) +
+  theme(axis.title.x = element_blank(), axis.text.x = element_blank()) +
+  theme(axis.line = element_blank()) +
+  theme(legend.background = element_rect(fill = "#1A1A1A", color = "#1a1a1a"), legend.key = element_rect(color = "#1a1a1a"), legend.margin = margin(0,5,0,20)) +
+  theme(legend.text = element_text(color = "#fafafa", margin = margin(0,20,0,0)), legend.title = element_text(color = "#fafafa")) +
+  ylab("Medal Count") +
+  theme(axis.title.y = element_text(margin = margin(0,15,0,20), color = "#cccccc", hjust = 0.75)) +
+  ggtitle("Germany") +
+  theme(plot.title = element_text(color = "#fafafa", hjust = 0.5, face = "plain", margin = margin(20,0,10,0)))
+
+# liechstenstein
+liechstenstein <- winter %>% filter(Country == "LIE")
+
+liechstenstein %>% ggplot(aes(Discipline, Count, fill = Discipline)) +
+  geom_bar(stat = "identity", width = 1) + 
+  scale_fill_manual(values= c("#1733FF", "#6081FF", "#411AB9", "#B008F3", "#D0155B", "#EF7E65", "#F9B36D", "#F78EAC", "#B7FFF8", "#645186", "#075B5D", "#F7E4FF")) +
+  coord_polar() +
+  theme(panel.background = element_rect(fill = "#1a1a1a"), plot.background = element_rect(fill = "#1a1a1a"), axis.text = element_text(color = "#cccccc")) +
+  theme(axis.title.x = element_blank(), axis.text.x = element_blank()) +
+  theme(axis.line = element_blank()) +
+  theme(legend.background = element_rect(fill = "#1A1A1A", color = "#1a1a1a"), legend.key = element_rect(color = "#1a1a1a"), legend.margin = margin(0,5,0,20)) +
+  theme(legend.text = element_text(color = "#fafafa", margin = margin(0,20,0,0)), legend.title = element_text(color = "#fafafa")) +
+  ylab("Medal Count") +
+  theme(axis.title.y = element_text(margin = margin(0,15,0,20), color = "#cccccc", hjust = 0.75)) +
+  ggtitle("Liechstenstein") +
+  theme(plot.title = element_text(color = "#fafafa", hjust = 0.5, face = "plain", margin = margin(20,0,10,0)))
+
+# suisse
+suisse <- winter %>% filter(Country == "SUI")
+
+suisse %>% ggplot(aes(Discipline, Count, fill = Discipline)) +
+  geom_bar(stat = "identity", width = 1) + 
+  scale_fill_manual(values= c("#1733FF", "#6081FF", "#411AB9", "#B008F3", "#D0155B", "#EF7E65", "#F9B36D", "#F78EAC", "#B7FFF8", "#645186", "#075B5D", "#F7E4FF")) +
+  coord_polar() +
+  theme(panel.background = element_rect(fill = "#1a1a1a"), plot.background = element_rect(fill = "#1a1a1a"), axis.text = element_text(color = "#cccccc")) +
+  theme(axis.title.x = element_blank(), axis.text.x = element_blank()) +
+  theme(axis.line = element_blank()) +
+  theme(legend.background = element_rect(fill = "#1A1A1A", color = "#1a1a1a"), legend.key = element_rect(color = "#1a1a1a"), legend.margin = margin(0,5,0,20)) +
+  theme(legend.text = element_text(color = "#fafafa", margin = margin(0,20,0,0)), legend.title = element_text(color = "#fafafa")) +
+  ylab("Medal Count") +
+  theme(axis.title.y = element_text(margin = margin(0,15,0,20), color = "#cccccc", hjust = 0.75)) +
+  ggtitle("Switzerland") +
+  theme(plot.title = element_text(color = "#fafafa", hjust = 0.5, face = "plain", margin = margin(20,0,10,0)))
+
+# austria
+austria <- winter %>% filter(Country == "AUT")
+
+austria %>% ggplot(aes(Discipline, Count, fill = Discipline)) +
+  geom_bar(stat = "identity", width = 1) + 
+  scale_fill_manual(values= c("#1733FF", "#6081FF", "#411AB9", "#B008F3", "#D0155B", "#EF7E65", "#F9B36D", "#F78EAC", "#B7FFF8", "#645186", "#075B5D", "#F7E4FF")) +
+  coord_polar() +
+  theme(panel.background = element_rect(fill = "#1a1a1a"), plot.background = element_rect(fill = "#1a1a1a"), axis.text = element_text(color = "#cccccc")) +
+  theme(axis.title.x = element_blank(), axis.text.x = element_blank()) +
+  theme(axis.line = element_blank()) +
+  theme(legend.background = element_rect(fill = "#1A1A1A", color = "#1a1a1a"), legend.key = element_rect(color = "#1a1a1a"), legend.margin = margin(0,5,0,20)) +
+  theme(legend.text = element_text(color = "#fafafa", margin = margin(0,20,0,0)), legend.title = element_text(color = "#fafafa")) +
+  ylab("Medal Count") +
+  theme(axis.title.y = element_text(margin = margin(0,15,0,20), color = "#cccccc", hjust = 0.75)) +
+  ggtitle("Austria") +
+  theme(plot.title = element_text(color = "#fafafa", hjust = 0.5, face = "plain", margin = margin(20,0,10,0)))
+
+# slovenia
+slovenia <- winter %>% filter(Country == "SLO")
+
+slovenia %>% ggplot(aes(Discipline, Count, fill = Discipline)) +
+  geom_bar(stat = "identity", width = 1) + 
+  scale_fill_manual(values= c("#1733FF", "#6081FF", "#411AB9", "#B008F3", "#D0155B", "#EF7E65", "#F9B36D", "#F78EAC", "#B7FFF8", "#645186", "#075B5D", "#F7E4FF")) +
+  coord_polar() +
+  theme(panel.background = element_rect(fill = "#1a1a1a"), plot.background = element_rect(fill = "#1a1a1a"), axis.text = element_text(color = "#cccccc")) +
+  theme(axis.title.x = element_blank(), axis.text.x = element_blank()) +
+  theme(axis.line = element_blank()) +
+  theme(legend.background = element_rect(fill = "#1A1A1A", color = "#1a1a1a"), legend.key = element_rect(color = "#1a1a1a"), legend.margin = margin(0,5,0,20)) +
+  theme(legend.text = element_text(color = "#fafafa", margin = margin(0,20,0,0)), legend.title = element_text(color = "#fafafa")) +
+  ylab("Medal Count") +
+  theme(axis.title.y = element_text(margin = margin(0,15,0,20), color = "#cccccc", hjust = 0.75)) +
+  ggtitle("Slovenia") +
+  theme(plot.title = element_text(color = "#fafafa", hjust = 0.5, face = "plain", margin = margin(20,0,10,0)))
