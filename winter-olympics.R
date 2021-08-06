@@ -159,15 +159,21 @@ slovenia %>% ggplot(aes(Discipline, Count, fill = Discipline)) +
 # filter alps cities
 unique(original$City)
 hosts <- winter %>% filter(City %in% c("Chamonix", "St.Moritz", "Garmisch Partenkirchen", "Cortina d'Ampezzo", "Innsbruck", "Grenoble", "Albertville", "Turin"))
-coordinates <- data.frame(longitude = c(45.9237, 46.4908, 47.4917, 46.5405, 47.2692, 45.1885, 45.6755, 45.0703), latitude = c(6.8694, 9.8355, 11.0955, 12.1357, 11.4041, 5.7245, 6.3927, 7.6869))
+coordinates <- data.frame(latitude = c(45.9237, 46.4908, 47.4917, 46.5405, 47.2692, 45.1885, 45.6755, 45.0703), longitude = c(6.8694, 9.8355, 11.0955, 12.1357, 11.4041, 5.7245, 6.3927, 7.6869))
 
 # map
 install.packages("sf")
-install.packages("rnaturalearthdata")
+install.packages(c("rnaturalearth", "rnaturalearthdata"))
+install.packages("rgeos")
 library(sf)
+library(rnaturalearth)
 library(rnaturalearthdata)
+library(rgeos)
 
-world <- ne_countries(continent = "europe", scale = "medium", returnclass = "sf")
+world <- ne_countries(geounit = c("france", "austria", "italy", "germany", "switzerland", "liechstenstein", "slovenia"), scale = 110, returnclass = "sf")
 
-map <- ggplot(data = world) +
-  geom_sf()
+ggplot(data = world) +
+  geom_sf(color = "#1a1a1a", fill = "#0B26F9", alpha = 0.85) +
+  geom_point(data = coordinates, aes(longitude, latitude), size = 0.5, fill = "#CAD0FF") +
+  theme(plot.background = element_rect(fill = "#1a1a1a"), panel.background = element_rect(fill = "#1a1a1a")) +
+  theme(panel.grid = element_blank())
