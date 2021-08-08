@@ -177,3 +177,42 @@ ggplot(data = world) +
   geom_point(data = coordinates, aes(longitude, latitude), size = 0.5, fill = "#CAD0FF") +
   theme(plot.background = element_rect(fill = "#1a1a1a"), panel.background = element_rect(fill = "#1a1a1a")) +
   theme(panel.grid = element_blank())
+
+# medals by year
+winter %>% ggplot(aes(Year, Count, label = Year)) +
+  geom_bar(stat = "identity", fill = "#172FFF") +
+  geom_text(nudge_y = -2, size = 3) +
+  theme(panel.background = element_rect(fill = "#1a1a1a")) + 
+  theme(plot.background = element_rect(fill = "#1a1a1a")) +
+  theme(axis.text = element_text(color = "#cccccc")) +
+  xlab("Year") +
+  ylab("Medal Count") + 
+  ggtitle("The Alps Countries' Collective Winter Olympics Medal Count, 1924-2014") +
+  theme(axis.title.x = element_text(color = "#cccccc", size = 10, margin = margin(10,0,20,0))) + 
+  theme(axis.title.y = element_text(color = "#cccccc", size = 10, margin = margin(0,15,0,20))) + 
+  theme(plot.title = element_text(color = "#fafafa", hjust = 0.5, face = "plain", margin = margin(20,0,20,0))) +
+  theme(axis.line.y = element_line(color = "#b4b4b4")) +
+  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), axis.line.x = element_blank()) +
+  theme(panel.grid.major.x = element_blank())
+
+# gender breakdown by country
+winter %>% ggplot(aes(Country, Count, fill = Gender, label = Country)) +
+  geom_bar(position = "fill", stat = "identity") +
+  geom_text(nudge_y = -1.05) +
+  scale_fill_manual(labels = c("Men's", "Women's"), values = c("#411AB9", "#CCB4FF")) +
+  theme(panel.background = element_rect(fill = "#1a1a1a")) + 
+  theme(plot.background = element_rect(fill = "#1a1a1a")) +
+  theme(axis.text = element_text(color = "#cccccc")) +
+  xlab("Country") +
+  ylab("Proportion of Medal Count") + 
+  ggtitle("Proportion of Medal Count by Event Gender, 1924-2014") +
+  theme(axis.title.x = element_blank()) + 
+  theme(axis.title.y = element_text(color = "#cccccc", size = 10, margin = margin(0,15,0,20))) + 
+  theme(plot.title = element_text(color = "#fafafa", hjust = 0.5, face = "plain", margin = margin(20,0,20,0))) +
+  theme(axis.line.y = element_line(color = "#b4b4b4")) +
+  theme(legend.background = element_rect(fill = "#1A1A1A", color = "#1A1A1A"), legend.key = element_rect(color = "#1a1a1a")) +
+  theme(legend.text = element_text(color = "#FAFAFA", margin = margin(0,20,0,0))) + 
+  theme(legend.title = element_text(color = "#FAFAFA")) +
+  theme(axis.text.x = element_blank(), axis.line.x = element_blank(), axis.ticks.x = element_blank()) +
+  theme(panel.grid.major.x = element_blank()) +
+  labs(fill = "Event Gender")
