@@ -5,20 +5,21 @@ library(ggthemr)
 ggthemr('chalk')
 
 # inspect
+str(original)
 str(winter)
 unique(winter$Sport)
 unique(winter$Country)
 unique(winter$Event)
-unique(winter$Discipline)
+unique(original$Discipline)
 
 # filter out countries
-winter <- winter %>% filter(Country %in% c("FRA", "GER", "ITA", "LIE", "SUI", "AUT", "SLO"))
+winter <- original %>% filter(Country %in% c("FRA", "GER", "ITA", "LIE", "SUI", "AUT", "SLO"))
 winter <- winter %>% mutate(Count = 1)
 
 # medals by country
 winter %>% ggplot(aes(Country, Count, fill = Medal, label = Country)) +
   geom_bar(position = "stack", stat = "identity") +
-  geom_text(nudge_y = -3) +
+  geom_text(nudge_y = -20) +
   scale_fill_manual(values = c("#959FFF", "#172FFF", "#4356FF")) +
   theme(panel.background = element_rect(fill = "#1a1a1a")) + 
   theme(plot.background = element_rect(fill = "#1a1a1a")) +
@@ -42,7 +43,7 @@ france <- winter %>% filter(Country == "FRA")
 
 france %>% ggplot(aes(Discipline, Count, fill = Discipline)) +
   geom_bar(stat = "identity", width = 1) + 
-  scale_fill_manual(values = c("#1733FF", "#6081FF", "#4123B9", "#B036F3", "#6ec5cc", "#d0215b", "#ef7e65", "#b7fef8", "#075a5d")) +
+  scale_fill_manual(values = c("#1733FF", "#6081FF", "#4123B9", "#B036F3", "#6ec5cc", "#d0215b", "#ef7e65", "#b7fef8", "#645186", "#075a5d")) +
   coord_polar() +
   theme(panel.background = element_rect(fill = "#1a1a1a"), plot.background = element_rect(fill = "#1a1a1a"), axis.text = element_text(color = "#cccccc")) +
   theme(axis.title.x = element_blank(), axis.text.x = element_blank()) +
@@ -59,7 +60,7 @@ italy <- winter %>% filter(Country == "ITA")
 
 italy %>% ggplot(aes(Discipline, Count, fill = Discipline)) +
   geom_bar(stat = "identity", width = 1) + 
-  scale_fill_manual(values= c("#1733FF", "#4123b9", "#b036f3", "#7f8fb0", "#ccb4ff", "#075a5d")) +
+  scale_fill_manual(values= c("#1733FF", "#6081FF", "#4123b9", "#b036f3", "#d0215b", "#F78EAC", "#b7fef8", "#7f8fb0", "#ccb4ff", "#075a5d", "#F7E4FF")) +
   coord_polar() +
   theme(panel.background = element_rect(fill = "#1a1a1a"), plot.background = element_rect(fill = "#1a1a1a"), axis.text = element_text(color = "#cccccc")) +
   theme(axis.title.x = element_blank(), axis.text.x = element_blank()) +
@@ -76,7 +77,7 @@ germany <- winter %>% filter(Country == "GER")
 
 germany %>% ggplot(aes(Discipline, Count, fill = Discipline)) +
   geom_bar(stat = "identity", width = 1) + 
-  scale_fill_manual(values= c("#1733FF", "#6081FF", "#411AB9", "#B008F3", "#D0155B", "#EF7E65", "#F9B36D", "#F78EAC", "#B7FFF8", "#645186", "#075B5D", "#F7E4FF")) +
+  scale_fill_manual(values= c("#1733FF", "#6081FF", "#411AB9", "#B008F3", "#D0155B", "#EF7E65", "#F9B36D", "#F78EAC", "#B7FFF8", "#ccb4ff", "#645186", "#075B5D", "#F7E4FF")) +
   coord_polar() +
   theme(panel.background = element_rect(fill = "#1a1a1a"), plot.background = element_rect(fill = "#1a1a1a"), axis.text = element_text(color = "#cccccc")) +
   theme(axis.title.x = element_blank(), axis.text.x = element_blank()) +
@@ -110,7 +111,7 @@ suisse <- winter %>% filter(Country == "SUI")
 
 suisse %>% ggplot(aes(Discipline, Count, fill = Discipline)) +
   geom_bar(stat = "identity", width = 1) + 
-  scale_fill_manual(values= c("#1733FF", "#6081FF", "#4123B9", "#B036f3", "#6ec5cc", "#d0215b", "#F9B36C", "#b7fef8")) +
+  scale_fill_manual(values= c("#1733FF", "#6081FF", "#4123B9", "#B036f3", "#6ec5cc", "#d0215b", "#EF7E65", "#F9B36C", "#b7fef8", "#ccb4ff", "#645186", "#075B5D")) +
   coord_polar() +
   theme(panel.background = element_rect(fill = "#1a1a1a"), plot.background = element_rect(fill = "#1a1a1a"), axis.text = element_text(color = "#cccccc")) +
   theme(axis.title.x = element_blank(), axis.text.x = element_blank()) +
@@ -127,7 +128,7 @@ austria <- winter %>% filter(Country == "AUT")
 
 austria %>% ggplot(aes(Discipline, Count, fill = Discipline)) +
   geom_bar(stat = "identity", width = 1) + 
-  scale_fill_manual(values= c("#1733FF", "#6081FF", "#4123b9", "#d0215b", "#f78eac", "#b7fef8", "#645186", "#075a5d")) +
+  scale_fill_manual(values= c("#1733FF", "#6081FF", "#4123b9", "#B036F3", "#d0215b", "#ef7e65", "#f78eac", "#b7fef8", "#ccb4ff", "#645186", "#075a5d", "#F7E4FF")) +
   coord_polar() +
   theme(panel.background = element_rect(fill = "#1a1a1a"), plot.background = element_rect(fill = "#1a1a1a"), axis.text = element_text(color = "#cccccc")) +
   theme(axis.title.x = element_blank(), axis.text.x = element_blank()) +
@@ -144,7 +145,7 @@ slovenia <- winter %>% filter(Country == "SLO")
 
 slovenia %>% ggplot(aes(Discipline, Count, fill = Discipline)) +
   geom_bar(stat = "identity", width = 1) + 
-  scale_fill_manual(values= c("#1733FF", "#1c6db7")) +
+  scale_fill_manual(values= c("#1733FF", "#6081FF", "#B036f3", "#1c6db7", "#075a5d")) +
   coord_polar() +
   theme(panel.background = element_rect(fill = "#1a1a1a"), plot.background = element_rect(fill = "#1a1a1a"), axis.text = element_text(color = "#cccccc")) +
   theme(axis.title.x = element_blank(), axis.text.x = element_blank()) +
@@ -181,7 +182,7 @@ ggplot(data = world) +
 # medals by year
 winter %>% ggplot(aes(Year, Count, label = Year)) +
   geom_bar(stat = "identity", fill = "#172FFF") +
-  geom_text(nudge_y = -2, size = 3) +
+  geom_text(nudge_y = -5, size = 3) +
   theme(panel.background = element_rect(fill = "#1a1a1a")) + 
   theme(plot.background = element_rect(fill = "#1a1a1a")) +
   theme(axis.text = element_text(color = "#cccccc")) +
@@ -216,3 +217,44 @@ winter %>% ggplot(aes(Country, Count, fill = Gender, label = Country)) +
   theme(axis.text.x = element_blank(), axis.line.x = element_blank(), axis.ticks.x = element_blank()) +
   theme(panel.grid.major.x = element_blank()) +
   labs(fill = "Event Gender")
+
+# calculs
+str(winter)
+ger <- winter %>% filter(Country == "GER")
+str(ger)
+
+gergold <- ger %>% filter(Medal == "Gold")
+str(gergold)
+
+gersilver <- ger %>% filter(Medal == "Silver")
+str(gersilver)
+
+gerbronze <- ger %>% filter(Medal == "Bronze")
+str(gerbronze)
+
+str(original)
+germcount <- original %>% filter(Country == "GER")
+str(germcount)
+
+liech <- winter %>% filter(Country == "LIE")
+str(liech)
+
+liechgender <- liech %>% filter(Gender == "Women")
+str(liechgender)
+liechgender
+
+swiss <- winter %>% filter(Country == "SUI")
+str(swiss)
+
+swissski <- swiss %>% filter(Discipline == "Alpine Skiing")
+str(swissski)
+
+aus <- winter %>% filter(Country == "AUT")
+str(aus)
+
+ausski <- aus %>% filter(Discipline == "Alpine Skiing")
+str(ausski)
+
+str(winter %>% filter(Year %in% c("2002", "2006", "2010", "2014")))
+
+
