@@ -233,8 +233,8 @@ gerbronze <- ger %>% filter(Medal == "Bronze")
 str(gerbronze)
 
 str(original)
-germcount <- original %>% filter(Country == "GER")
-str(germcount)
+gercount <- original %>% filter(Country == "GER")
+str(gercount)
 
 liech <- winter %>% filter(Country == "LIE")
 str(liech)
